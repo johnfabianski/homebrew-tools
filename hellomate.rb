@@ -5,42 +5,46 @@
 class Hellomate < Formula
   desc ""
   homepage "https://github.com/samlhuillier/homebrew-tools"
-  version "1.0.4"
+  version "1.0.5"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/samlhuillier/hellomate/releases/download/1.0.4/hellomate_1.0.4_Darwin_arm64.tar.gz"
-      sha256 "e222516f88b9019db9b54041b44f0d2a48672121117b6bc9349ad5d4669ad946"
+      url "https://github.com/samlhuillier/hellomate/releases/download/1.0.5/hellomate_1.0.5_Darwin_arm64.tar.gz"
+      sha256 "aa1af342e440b645d38b14f97d6adba4d4dfa781ddecfccfc66094c7a66a7e70"
 
       def install
         bin.install "program"
+        generate_completions_from_executable(bin/"hellomate", "completion")
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/samlhuillier/hellomate/releases/download/1.0.4/hellomate_1.0.4_Darwin_x86_64.tar.gz"
-      sha256 "f5dcf0b61f8a0235cb8e697bb588e48dcde3cd7984a330f37fc2e44b81b017c7"
+      url "https://github.com/samlhuillier/hellomate/releases/download/1.0.5/hellomate_1.0.5_Darwin_x86_64.tar.gz"
+      sha256 "cadbcf0b968b35a2cf537b980af73e24b473db09ef3c846f639831e80c746d9d"
 
       def install
         bin.install "program"
+        generate_completions_from_executable(bin/"hellomate", "completion")
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/samlhuillier/hellomate/releases/download/1.0.4/hellomate_1.0.4_Linux_arm64.tar.gz"
-      sha256 "826717d0eadd6022fe6073982b7ebb2f8ee13919fd0a392536dedadccdfedb81"
+      url "https://github.com/samlhuillier/hellomate/releases/download/1.0.5/hellomate_1.0.5_Linux_arm64.tar.gz"
+      sha256 "0f486a1446ca670a7adc2f9b826da7bfbd3d105f0179c4b37c8607b6dd9cd12f"
 
       def install
         bin.install "program"
+        generate_completions_from_executable(bin/"hellomate", "completion")
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/samlhuillier/hellomate/releases/download/1.0.4/hellomate_1.0.4_Linux_x86_64.tar.gz"
-      sha256 "1c52499dadda28b3382086d33d24241bd9bfcef13a1339ff8bf3e22c17f0aff4"
+      url "https://github.com/samlhuillier/hellomate/releases/download/1.0.5/hellomate_1.0.5_Linux_x86_64.tar.gz"
+      sha256 "90b74e7685e40265576edd94ebf50364c84396f6b5abcd00b0bd43fefb3634e3"
 
       def install
         bin.install "program"
+        generate_completions_from_executable(bin/"hellomate", "completion")
       end
     end
   end

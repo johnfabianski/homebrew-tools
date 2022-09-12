@@ -5,25 +5,31 @@
 class Hellomate < Formula
   desc ""
   homepage "https://github.com/samlhuillier/homebrew-tools"
-  version "1.1.3"
+  version "1.1.4"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/samlhuillier/hellomate/releases/download/1.1.3/hellomate_1.1.3_Darwin_arm64.tar.gz"
-      sha256 "ac05482d88aa055b9a5f4248156a9f273b0f05c5614d5de05552aad83f0f6f8a"
+      url "https://github.com/samlhuillier/hellomate/releases/download/1.1.4/hellomate_1.1.4_Darwin_arm64.tar.gz"
+      sha256 "a0d408c074b32c983a802e71972aa5c429520addd4747852d8440b5abbd2ba93"
 
       def install
         bin.install "hellomate"
+        output = Utils.popen_read("#{bin}/hellomate completion bash")
+        (bash_completion/"hellomate").write output
+
         output = Utils.popen_read("#{bin}/hellomate completion zsh")
         (zsh_completion/"_hellomate").write output
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/samlhuillier/hellomate/releases/download/1.1.3/hellomate_1.1.3_Darwin_x86_64.tar.gz"
-      sha256 "13518eb74e827d5b575ccdff950ad2ccd1cda3e98cdd2a8d3c8cefad64727016"
+      url "https://github.com/samlhuillier/hellomate/releases/download/1.1.4/hellomate_1.1.4_Darwin_x86_64.tar.gz"
+      sha256 "9030c86c65b205cb4cf054abda6fa09fc0a0ee3ecfed589bf18c8ba6141768ef"
 
       def install
         bin.install "hellomate"
+        output = Utils.popen_read("#{bin}/hellomate completion bash")
+        (bash_completion/"hellomate").write output
+
         output = Utils.popen_read("#{bin}/hellomate completion zsh")
         (zsh_completion/"_hellomate").write output
       end
@@ -32,21 +38,27 @@ class Hellomate < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/samlhuillier/hellomate/releases/download/1.1.3/hellomate_1.1.3_Linux_arm64.tar.gz"
-      sha256 "3f76b2ce24ed1c0d79bdd220d33c6f42f029e2c55249a8cf25c07a8fe8afa92d"
+      url "https://github.com/samlhuillier/hellomate/releases/download/1.1.4/hellomate_1.1.4_Linux_arm64.tar.gz"
+      sha256 "9958c731d7835b4051486afffed8e2fe18efa7557e9d10818eb3713b9604a9fa"
 
       def install
         bin.install "hellomate"
+        output = Utils.popen_read("#{bin}/hellomate completion bash")
+        (bash_completion/"hellomate").write output
+
         output = Utils.popen_read("#{bin}/hellomate completion zsh")
         (zsh_completion/"_hellomate").write output
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/samlhuillier/hellomate/releases/download/1.1.3/hellomate_1.1.3_Linux_x86_64.tar.gz"
-      sha256 "a59e46dbf6596390a1d88cf72db5835889a65d86527e831819315da85079a503"
+      url "https://github.com/samlhuillier/hellomate/releases/download/1.1.4/hellomate_1.1.4_Linux_x86_64.tar.gz"
+      sha256 "2c5441ea837fe3cf1655bad5fccc8ba53dfe83dadae575d00cd636124a38a0e9"
 
       def install
         bin.install "hellomate"
+        output = Utils.popen_read("#{bin}/hellomate completion bash")
+        (bash_completion/"hellomate").write output
+
         output = Utils.popen_read("#{bin}/hellomate completion zsh")
         (zsh_completion/"_hellomate").write output
       end
